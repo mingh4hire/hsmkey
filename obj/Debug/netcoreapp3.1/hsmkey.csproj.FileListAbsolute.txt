@@ -1,0 +1,15 @@
+C:\Users\jerem\source\repos\hsmkey\obj\Debug\netcoreapp3.1\hsmkey.csprojAssemblyReference.cache
+C:\Users\jerem\source\repos\hsmkey\obj\Debug\netcoreapp3.1\hsmkey.AssemblyInfoInputs.cache
+C:\Users\jerem\source\repos\hsmkey\obj\Debug\netcoreapp3.1\hsmkey.AssemblyInfo.cs
+C:\Users\jerem\source\repos\hsmkey\obj\Debug\netcoreapp3.1\hsmkey.csproj.CoreCompileInputs.cache
+C:\Users\jerem\source\repos\hsmkey\bin\Debug\netcoreapp3.1\hsmkey.exe
+C:\Users\jerem\source\repos\hsmkey\bin\Debug\netcoreapp3.1\hsmkey.deps.json
+C:\Users\jerem\source\repos\hsmkey\bin\Debug\netcoreapp3.1\hsmkey.runtimeconfig.json
+C:\Users\jerem\source\repos\hsmkey\bin\Debug\netcoreapp3.1\hsmkey.runtimeconfig.dev.json
+C:\Users\jerem\source\repos\hsmkey\bin\Debug\netcoreapp3.1\hsmkey.dll
+C:\Users\jerem\source\repos\hsmkey\bin\Debug\netcoreapp3.1\hsmkey.pdb
+C:\Users\jerem\source\repos\hsmkey\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\jerem\source\repos\hsmkey\obj\Debug\netcoreapp3.1\hsmkey.csproj.CopyComplete
+C:\Users\jerem\source\repos\hsmkey\obj\Debug\netcoreapp3.1\hsmkey.dll
+C:\Users\jerem\source\repos\hsmkey\obj\Debug\netcoreapp3.1\hsmkey.pdb
+C:\Users\jerem\source\repos\hsmkey\obj\Debug\netcoreapp3.1\hsmkey.genruntimeconfig.cache

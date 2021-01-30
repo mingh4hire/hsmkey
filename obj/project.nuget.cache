@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1ZRqdTu6ynHzbfEo2xMw9ywTvTHBQdPtGuzbr+OPE2+waQVBqAbUU3SE9G+HlBjYaj49FvIvP72to06Dc9WmAw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jerem\\source\\repos\\hsmkey\\hsmkey.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jerem\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
