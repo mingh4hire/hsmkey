@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
@@ -44,9 +47,14 @@ namespace hsmkey
                 var segments = new List<string>();
                 var header = new { alg = algorithm.ToString(), typ = "JWT" };
                 
-                byte[] headerBytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(header));
+                //byte[] headerBytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(header));
 
-                byte[] payloadBytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(payload));
+                //byte[] payloadBytes = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(payload));
+                //byte[] payloadBytes = Encoding.UTF8.GetBytes(@"{"iss":"761326798069-r5mljlln1rd4lrbhg75efgigp36m78j5@developer.gserviceaccount.com","scope":"https://www.googleapis.com/auth/prediction","aud":"https://accounts.google.com/o/oauth2/token","exp":1328554385,"iat":1328550785}");
+
+
+                byte[] headerBytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(header, Formatting.None));
+                byte[] payloadBytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(payload, Formatting.None));
                 //byte[] payloadBytes = Encoding.UTF8.GetBytes(@"{"iss":"761326798069-r5mljlln1rd4lrbhg75efgigp36m78j5@developer.gserviceaccount.com","scope":"https://www.googleapis.com/auth/prediction","aud":"https://accounts.google.com/o/oauth2/token","exp":1328554385,"iat":1328550785}");
 
                 segments.Add(Base64UrlEncode(headerBytes));
@@ -75,9 +83,11 @@ namespace hsmkey
                 byte[] crypto = Base64UrlDecode(parts[2]);
 
                 var headerJson = Encoding.UTF8.GetString(Base64UrlDecode(header));
-                var headerData =  Newtonsoft.Json.Linq.JObject.Parse(headerJson);
+
+                var headerData =  JObject.Parse(headerJson);
                 var payloadJson = Encoding.UTF8.GetString(Base64UrlDecode(payload));
-                var payloadData = Newtonsoft.Json.Linq.JObject.Parse(payloadJson);
+                //Newtonsoft.Json.Linq.
+                var payloadData = JObject.Parse(payloadJson);
 
                 if (verify)
                 {
@@ -105,6 +115,7 @@ namespace hsmkey
                     case "RS256": return JwtHashAlgorithm.RS256;
                     case "HS384": return JwtHashAlgorithm.HS384;
                     case "HS512": return JwtHashAlgorithm.HS512;
+                    case "HS256": return JwtHashAlgorithm.HS256;
                     default: throw new InvalidOperationException("Algorithm not supported.");
                 }
             }
@@ -137,8 +148,28 @@ namespace hsmkey
             }
             static void Main(string[] args)
             {
-                var p = new Program();
-                var kk = Encode(@"asdfsdfa", "ASDF32432SADF", JwtHashAlgorithm.HS512);
+                var json = new
+                {
+                    sub = "123456723890",
+                    name = "John Doe",
+                    iat = 1516239022
+
+
+                };
+
+                Console.WriteLine(  json.iat);
+                const string key = "asdfasdfsad";
+                var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.xpC1dQA9Y2fqLZkpq5wTcEL57OpGq3YNbrlh7SgG0Uc";
+                var decodedstring =  Decode(token, key);
+                Console.WriteLine("{0} is the decodedstring", decodedstring);
+                  var kk = Encode(new
+                  {
+                    sub= "123456723890",
+   name= "John Doe",
+  iat= 1516239022
+
+
+            }, "asdfasdfsad", JwtHashAlgorithm.HS512);
                 Console.WriteLine("Hello World!");
                 Console.WriteLine(kk);
 
@@ -150,6 +181,8 @@ namespace hsmkey
 
             static void Main2(string[] args)
             {
+                var i = new List<int>();
+                var k = i.Count();
                 Console.WriteLine("Hello World!");
 
             }
